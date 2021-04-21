@@ -1,5 +1,5 @@
 {
-  "name": "rescript-vite-react-windicss",
+  "name": "tic_tac_toe",
   "bsc-flags": ["-bs-super-errors"],
   "sources": [
     {
@@ -16,6 +16,6 @@
   "suffix": ".bs.js",
   "namespace": true,
   "reason": { "react-jsx": 3 },
-  "bs-dependencies": ["@rescript/react"],
+  "bs-dependencies": ["@rescript/react", "@glennsl/bs-jest"],
   "ppx-flags": []
 }

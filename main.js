@@ -1,2 +1,2 @@
-import 'virtual:windi.css'
-import './src/index.bs'
+import "virtual:windi.css";
+import "./src/index.bs";
