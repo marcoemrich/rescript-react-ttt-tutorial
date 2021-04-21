@@ -17,6 +17,5 @@
   "namespace": true,
   "reason": { "react-jsx": 3 },
   "bs-dependencies": ["@rescript/react"],
-  "ppx-flags": [],
-  "refmt": 3
+  "ppx-flags": []
 }
