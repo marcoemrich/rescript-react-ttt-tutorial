@@ -1,6 +1,6 @@
 {
-  "name": "tic_tac_toe",
-  "bsc-flags": ["-bs-super-errors"],
+  "name": "tic-tac-toe",
+  "bsc-flags": ["-bs-super-errors", "-open Belt"],
   "sources": [
     {
       "dir": "src",
