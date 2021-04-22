@@ -12,11 +12,16 @@ let numberOf = (board, cell: Cell.t) => board->Array.keep(c => c == cell)->Array
 
 let nextPlayer = board => board->numberOf(Cell.X) == board->numberOf(Cell.O) ? Cell.X : Cell.O
 
-let markAt = (board: t, pos: int) =>
-  Array.concatMany([
-    board->Array.slice(~offset=0, ~len=pos),
-    [board->nextPlayer],
-    board->Array.sliceToEnd(pos + 1),
-  ])
+let markAt = (board: t, pos: int) => {
+  switch board[pos] {
+  | Some(Cell.Empty) =>
+    Array.concatMany([
+      board->Array.slice(~offset=0, ~len=pos),
+      [board->nextPlayer],
+      board->Array.sliceToEnd(pos + 1),
+    ])
+  | _ => board
+  }
+}
 
 let at = (board, pos: int) => board[pos]
