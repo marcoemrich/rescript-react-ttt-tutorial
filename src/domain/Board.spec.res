@@ -27,5 +27,5 @@ test("Board.markAt should place an O as the second mark", () => {
 test("Board.markAt should not overwrite an existing mark", () => {
   let board = Board.make()
   let changedBoard = board->markAt(4)->markAt(4)
-  expect(changedBoard->at(1)) |> toEqual(Some(Cell.X))
+  expect(changedBoard->at(4)) |> toEqual(Some(Cell.X))
 })
