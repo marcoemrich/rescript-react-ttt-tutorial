@@ -1,1 +1,1 @@
-type t = Empty | X | O
+type t = Empty | Player(Player.t)

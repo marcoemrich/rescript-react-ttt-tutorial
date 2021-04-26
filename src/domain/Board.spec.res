@@ -15,17 +15,32 @@ test("A new Board should have 9 EMPTY cells", () => {
 test("Board.markAt should place an X in middle of the board", () => {
   let board = Board.make()
   let changedBoard = board->markAt(4)
-  expect(changedBoard->at(4)) |> toEqual(Some(Cell.X))
+  Js.log(Some(Cell.Player(O)))
+  expect(changedBoard->at(4)) |> toEqual(Some(Cell.Player(X)))
 })
 
 test("Board.markAt should place an O as the second mark", () => {
   let board = Board.make()
   let changedBoard = board->markAt(4)->markAt(1)
-  expect(changedBoard->at(1)) |> toEqual(Some(Cell.O))
+  expect(changedBoard->at(1)) |> toEqual(Some(Cell.Player(O)))
 })
 
 test("Board.markAt should not overwrite an existing mark", () => {
   let board = Board.make()
   let changedBoard = board->markAt(4)->markAt(4)
-  expect(changedBoard->at(4)) |> toEqual(Some(Cell.X))
+  expect(changedBoard->at(4)) |> toEqual(Some(Cell.Player(X)))
+})
+
+test("Board.winner returns None for an empty board", () => {
+  let board = Board.make()
+  expect(board->winner) |> toEqual(None)
+})
+
+test("Board.winner ", () => {
+  let board: Board.t = [Player(X), Player(X), Player(X), Empty, Empty, Empty, Empty, Empty, Empty]
+  expect(board->winner) |> toEqual(Some(Player.X))
+})
+test("Board.winner ", () => {
+  let board: Board.t = [Player(O), Player(O), Player(O), Empty, Empty, Empty, Empty, Empty, Empty]
+  expect(board->winner) |> toEqual(Some(Player.O))
 })
