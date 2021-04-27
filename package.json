@@ -6,6 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "re:clean": "bsb -clean-world",
     "re:build": "bsb -make-world -clean-world",
     "re:watch": "bsb -make-world -clean-world -w",
     "test": "npx jest"

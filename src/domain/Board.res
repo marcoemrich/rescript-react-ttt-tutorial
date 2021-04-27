@@ -36,6 +36,8 @@ let winner: t => option<Player.t> = board =>
   | [Player(p0), _, _, Player(p1), _, _, Player(p2), _, _] if eq3(p0, p1, p2) => Some(p0)
   | [_, Player(p0), _, _, Player(p1), _, _, Player(p2), _] if eq3(p0, p1, p2) => Some(p0)
   | [_, _, Player(p0), _, _, Player(p1), _, _, Player(p2)] if eq3(p0, p1, p2) => Some(p0)
+  | [Player(p0), _, _, _, Player(p1), _, _, _, Player(p2)] if eq3(p0, p1, p2) => Some(p0)
+  | [_, _, Player(p0), _, Player(p1), _, Player(p2), _, _] if eq3(p0, p1, p2) => Some(p0)
   | _ => None
   }
 
