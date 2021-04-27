@@ -26,12 +26,16 @@ let markAt = (board: t, pos: int): t => {
   | _ => board
   }
 }
+let eq3 = (x, y, z) => x == y && y == z
 
 let winner: t => option<Player.t> = board =>
   switch board {
-  | [Player(p0), Player(p1), Player(p2), Empty, Empty, Empty, Empty, Empty, Empty]
-    if p0 === p1 && p1 === p2 =>
-    Some(p0)
+  | [Player(p0), Player(p1), Player(p2), _, _, _, _, _, _] if eq3(p0, p1, p2) => Some(p0)
+  | [_, _, _, Player(p0), Player(p1), Player(p2), _, _, _] if eq3(p0, p1, p2) => Some(p0)
+  | [_, _, _, _, _, _, Player(p0), Player(p1), Player(p2)] if eq3(p0, p1, p2) => Some(p0)
+  | [Player(p0), _, _, Player(p1), _, _, Player(p2), _, _] if eq3(p0, p1, p2) => Some(p0)
+  | [_, Player(p0), _, _, Player(p1), _, _, Player(p2), _] if eq3(p0, p1, p2) => Some(p0)
+  | [_, _, Player(p0), _, _, Player(p1), _, _, Player(p2)] if eq3(p0, p1, p2) => Some(p0)
   | _ => None
   }
 

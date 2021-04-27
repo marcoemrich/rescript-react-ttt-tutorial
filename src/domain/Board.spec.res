@@ -36,11 +36,16 @@ test("Board.winner returns None for an empty board", () => {
   expect(board->winner) |> toEqual(None)
 })
 
-test("Board.winner ", () => {
+test("Board.winner returns X for top row", () => {
   let board: Board.t = [Player(X), Player(X), Player(X), Empty, Empty, Empty, Empty, Empty, Empty]
   expect(board->winner) |> toEqual(Some(Player.X))
 })
-test("Board.winner ", () => {
+test("Board.winner returns O for top row", () => {
   let board: Board.t = [Player(O), Player(O), Player(O), Empty, Empty, Empty, Empty, Empty, Empty]
+  expect(board->winner) |> toEqual(Some(Player.O))
+})
+
+test("Board.winner returns O for right col", () => {
+  let board: Board.t = [Empty, Empty, Player(O), Empty, Empty, Player(O), Empty, Empty, Player(O)]
   expect(board->winner) |> toEqual(Some(Player.O))
 })
