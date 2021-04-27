@@ -15,7 +15,6 @@ test("A new Board should have 9 EMPTY cells", () => {
 test("Board.markAt should place an X in middle of the board", () => {
   let board = Board.make()
   let changedBoard = board->markAt(4)
-  Js.log(Some(Cell.Player(O)))
   expect(changedBoard->at(4)) |> toEqual(Some(Cell.Player(X)))
 })
 
